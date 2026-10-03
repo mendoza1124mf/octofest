@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Feliz cumpleaños</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+<script>
+  tailwind.config = { theme: { extend: {
+    colors: { sage: '#9AB3A9', forest: '#3B6B5B', deep: '#1F4A3C', gold: '#F2C230', cream: '#FBF6E4' },
+    fontFamily: { serif: ['"Playfair Display"', 'serif'], sans: ['Inter', 'sans-serif'] }
+  } } }
+</script>
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="bg-sage font-sans text-white overflow-hidden">
+<div id="app" class="relative mx-auto flex h-[100dvh] max-w-md flex-col">
+
+  <!-- Encabezado -->
+  <header class="flex items-center gap-3 bg-forest px-4 py-3 shadow-md">
+    <div class="h-10 w-10 shrink-0 overflow-hidden rounded-full bg-gold">
+      <img src="assets/img/logo.png" alt="" class="h-full w-full object-cover" onerror="this.style.display='none'">
+    </div>
+    <div class="leading-tight">
+      <p id="event-name" class="text-[10px] tracking-widest text-gold"></p>
+      <h1 id="screen-title" class="text-sm font-semibold"></h1>
+    </div>
+  </header>
+
+  <!-- Escenario: las 8 pantallas viven aquí -->
+  <main id="stage" class="relative flex-1 overflow-hidden">
+
+    <!-- 1. Cuenta regresiva -->
+    <section class="screen" data-screen="1">
+      <div class="px-6 text-center">
+        <h2 class="font-serif text-2xl text-cream">Ya casi llega la hora</h2>
+        <p class="mt-2 text-sm text-white/60">Algo maravilloso está a punto de comenzar... guarda este instante en el corazón.</p>
+        <div class="my-6 text-gold">◆</div>
+        <div class="flex justify-center gap-3">
+          <div class="cd-box"><span id="cd-h">00</span><small>HORAS</small></div>
+          <div class="cd-box"><span id="cd-m">00</span><small>MINUTOS</small></div>
+          <div class="cd-box cd-box--gold"><span id="cd-s">00</span><small>SEGUNDOS</small></div>
+        </div>
+      </div>
+      <span class="corner corner--l">🎉</span><span class="corner corner--r">🎉</span>
+    </section>
+
+    <!-- 2. Bienvenida -->
+    <section class="screen" data-screen="2">
+      <div class="px-6 text-center" data-next>
+        <h2 class="font-serif text-3xl text-cream">¡Ya es 19!</h2>
+        <p class="mt-3 text-sm text-white/60">Continúa, que hay algo que quiero que veas</p>
+      </div>
+    </section>
+
+    <!-- 3. Sello de cera -->
+    <section class="screen" data-screen="3">
+      <p class="hint">Toca el sello de cera para abrir tu carta</p>
+      <div class="seal-card">
+        <button id="seal" class="seal" aria-label="Abrir carta"><span>ABRIR</span></button>
+        <h3 class="mt-4 font-serif text-lg font-bold text-deep">Correspondencia Privada</h3>
+        <p class="text-xs text-deep/70">Sellada con amor y buenos deseos</p>
+      </div>
+    </section>
+
+    <!-- 4. Sobre + carta -->
+    <section class="screen" data-screen="4">
+      <div id="envelope" class="envelope">
+        <div class="env-back"></div>
+        <div id="letter-card" class="letter"></div>
+        <div class="env-front"></div>
+        <div class="env-flap"></div>
+      </div>
+      <div class="mt-6 flex w-full max-w-[300px] justify-between text-sm">
+        <button id="save-letter" class="btn-ghost">Guardar</button>
+        <button data-next class="btn-ghost">Continuar →</button>
+      </div>
+    </section>
+
+    <!-- 5. Puzzle -->
+    <section class="screen" data-screen="5">
+      <p class="mb-4 px-8 text-center text-sm text-white/70">Completa el rompecabezas para desbloquear la siguiente pantalla</p>
+      <div id="puzzle" class="puzzle" data-noswipe></div>
+    </section>
+
+    <!-- 6. Carrusel -->
+    <section class="screen" data-screen="6">
+      <div id="carousel" class="carousel" data-noswipe></div>
+      <div id="carousel-dots" class="mt-3 flex gap-1.5"></div>
+    </section>
+
+    <!-- 7. Pollo -->
+    <section class="screen" data-screen="7">
+      <p class="font-serif text-2xl text-cream">Y por último...</p>
+      <p class="mb-6 text-sm text-white/60">Click al pollo, por favor</p>
+      <button id="chicken" class="chicken" aria-label="Pollo">
+        <!-- Reemplaza el emoji por <img src="assets/img/pollo.png"> cuando tengas el dibujo -->
+        <span>🐔</span>
+      </button>
+    </section>
+
+    <!-- 8. Final -->
+    <section class="screen" data-screen="8">
+      <h2 class="font-serif text-4xl text-cream">¡Felicidades!</h2>
+    </section>
+
+    <!-- Personaje + cuadro de instrucciones (se reutiliza en varias pantallas) -->
+    <div id="character" class="character hidden">
+      <div class="bubble"><p class="bubble-text"></p></div>
+      <img alt="" class="character-img">
+    </div>
+
+    <!-- Reproductor -->
+    <div id="player" class="player hidden">
+      <span id="p-cur" class="w-10 text-right text-[10px] text-white/70">00:00</span>
+      <div class="h-1 flex-1 rounded bg-white/25"><div id="p-bar" class="h-full w-0 rounded bg-gold"></div></div>
+      <span id="p-dur" class="w-10 text-[10px] text-white/70">00:00</span>
+      <button id="p-toggle" class="grid h-10 w-10 place-items-center rounded-full bg-deep text-gold ring-2 ring-gold" aria-label="Pausar">❚❚</button>
+    </div>
+  </main>
+
+  <!-- Navegación -->
+  <footer class="flex items-center justify-between bg-forest/40 px-4 py-2 pb-[max(0.5rem,env(safe-area-inset-bottom))]">
+    <button id="nav-prev" class="nav-btn" aria-label="Anterior">←</button>
+    <div id="dots" class="flex gap-1.5"></div>
+    <button id="nav-next" class="nav-btn" aria-label="Siguiente">→</button>
+  </footer>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script type="module" src="js/main.js"></script>
+</body>
+</html>
