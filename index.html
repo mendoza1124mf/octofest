@@ -1,26 +1,25 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0">
 <title>OCTODENFEST</title>
 <script src="https://cdn.tailwindcss.com"></script>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
 <script>
   tailwind.config = { theme: { extend: {
-    colors: { sage: '#004431', forest: '#3B6B5B', deep: '#1F4A3C', gold: '#F2C230', cream: '#FBF6E4' },
+    colors: { sage: '#004431', forest: '#3B6B5B', deep: '#1F4A3C', gold: '#F2C230', cream: '#FBF6E5' },
     fontFamily: { serif: ['"Playfair Display"', 'serif'], sans: ['Inter', 'sans-serif'] }
   } } }
 </script>
 <link rel="stylesheet" href="css/styles.css">
 </head>
 <body class="bg-sage font-sans text-white overflow-hidden">
-<div id="app" class="relative mx-auto flex h-[100dvh] max-w-md flex-col">
+<div id="app" class="relative flex h-[100dvh] w-full flex-col md:mx-auto md:max-w-md">
 
   <!-- Encabezado -->
   <header class="flex items-center gap-3 bg-forest px-4 py-3 shadow-md">
     <div class="h-10 w-10 shrink-0 overflow-hidden rounded-full bg-gold">
-      <img src="assets/img/logo.png" alt="" class="h-full w-full object-cover" onerror="this.style.display='none'">
+      <img src="assets/img/libra.webp" alt="" class="h-full w-full object-cover" onerror="this.style.display='none'">
     </div>
     <div class="leading-tight">
       <p id="event-name" class="text-[10px] tracking-widest text-gold"></p>
@@ -28,7 +27,7 @@
     </div>
   </header>
 
-  <!-- Escenario: las 8 pantallas viven aquí -->
+  <!-- Pantallas -->
   <main id="stage" class="relative flex-1 overflow-hidden">
 
     <!-- 1. Cuenta regresiva -->
@@ -47,10 +46,20 @@
     </section>
 
     <!-- 2. Bienvenida -->
-    <section class="screen" data-screen="2">
+    <section class="screen screen--welcome" data-screen="2">
+      <div class="duo">
+        <div class="sprite">
+          <img src="assets/img/happy1.png" alt="" class="f1">
+          <img src="assets/img/happy2.png" alt="" class="f2">
+        </div>
+        <div class="sprite sprite--b">
+          <img src="assets/img/happy.png" alt="" class="f1">
+        </div>
+      </div>
+
       <div class="px-6 text-center" data-next>
-        <h2 class="font-serif text-3xl text-cream">¡Ya es 19!</h2>
-        <p class="mt-3 text-sm text-white/60">Continúa, que hay algo que quiero que veas</p>
+        <h2 class="font-serif text-3xl text-cream"><span>🎉</span>¡Ya es 19!<span class="corner--r">🎉</span></h2>
+        <p class="mt-3 text-sm text-white/60">Continúa porfavor, que hay algo que quiero que veas</p>
       </div>
     </section>
 
