@@ -59,6 +59,12 @@ export const CONFIG = {
     { type: 'image', src: 'assets/media/foto3.jpg' },
     { type: 'image', src: 'assets/media/foto4.jpg' },
     { type: 'image', src: 'assets/media/foto5.jpg' },
+    { type: 'image', src: 'assets/media/foto6.jpg' },
+    { type: 'image', src: 'assets/media/foto7.jpg' },
+    { type: 'image', src: 'assets/media/foto8.jpg' },
+    { type: 'image', src: 'assets/media/foto9.jpg' },
+    { type: 'image', src: 'assets/media/foto10.jpg' },
+    { type: 'image', src: 'assets/media/foto11.jpg' },
     { type: 'image', src: 'assets/media/pastel.jpg' },
   ]
 };
