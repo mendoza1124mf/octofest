@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0">
-<title>TEST</title>
+<title>OCTODENFEST</title>
 <script src="https://cdn.tailwindcss.com"></script>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
 <script>
@@ -66,15 +66,23 @@
 
     <!-- 3. Sello de cera -->
     <section class="screen" data-screen="3">
-      <p class="hint">Toca el sello de cera para abrir tu carta</p>
-      <div class="seal-card">
-        <button id="seal" class="seal" aria-label="Abrir carta"><span>ABRIR</span></button>
-        <h3 class="mt-4 font-serif text-lg font-bold text-deep">Correspondencia Privada</h3>
-        <p class="text-xs text-deep/70">Sellada con amor y buenos deseos</p>
+      <div id="sobre" class="sobre">
+        <div class="sobre-back"></div>
+        <div class="sobre-left"></div>
+        <div class="sobre-right"></div>
+        <div class="sobre-bottom"></div>
+        <div class="sobre-text">
+          <h3 class="font-serif text-base font-bold text-deep">Correspondencia Privada</h3>
+          <p class="text-[11px] text-deep/70">Sellada con cariño, funa y buenos deseos</p>
+        </div>
+        <div class="sobre-flap"></div>
+        <button id="seal" class="seal" aria-label="Abrir carta">
+          <img src="assets/img/sello.png" alt="">
+        </button>
       </div>
     </section>
 
-    <!-- 4. Sobre + carta -->
+    <!-- 4. Sobre + carta 
     <section class="screen" data-screen="4">
       <div id="envelope" class="envelope">
         <div class="env-back"></div>
@@ -85,6 +93,16 @@
       <div class="mt-6 flex w-full max-w-[300px] justify-between text-sm">
         <button id="save-letter" class="btn-ghost">Guardar</button>
         <button data-next class="btn-ghost">Continuar →</button>
+      </div>
+    </section>-->
+
+      <!-- 4. Carta -->
+    <section class="screen" data-screen="4">
+      <div id="paper" class="paper" data-noswipe>
+        <div id="letter-card" class="paper-inner"></div>
+      </div>
+      <div class="mt-4 flex w-full max-w-[20rem] justify-between text-sm">
+        <button id="save-letter" class="btn-ghost">Guardar</button>
       </div>
     </section>
 
