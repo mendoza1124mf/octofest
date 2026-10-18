@@ -1,29 +1,37 @@
 import { CONFIG } from './config.js';
 
-const BUBBLE_SECONDS = 4;   // cuántos segundos se queda visible el mensaje
+const BUBBLE_SECONDS = 4;   // segundos que se queda visible cada mensaje
 
 export function initCharacters() {
   const host = document.getElementById('character');
-  const img = host.querySelector('img'), text = host.querySelector('.bubble-text'), bubble = host.querySelector('.bubble');
-  let timer;
+  let timers = [];
 
-  function showBubble() {
-    bubble.classList.remove('hidden');
-    bubble.style.animation = 'none'; void bubble.offsetWidth; bubble.style.animation = '';  // reinicia la animación de entrada
-    clearTimeout(timer);
-    timer = setTimeout(() => bubble.classList.add('hidden'), BUBBLE_SECONDS * 1000);
+  function build(c) {
+    const el = document.createElement('div');
+    el.className = 'char' + (c.side === 'right' ? ' char--right' : '');
+    el.innerHTML = '<div class="bubble"><p class="bubble-text"></p></div><img alt="" class="character-img">';
+    const bubble = el.querySelector('.bubble');
+    el.querySelector('.bubble-text').textContent = c.text;
+    el.querySelector('img').src = c.img;
+
+    let timer;
+    const show = () => {
+      bubble.classList.remove('hidden');
+      clearTimeout(timer);
+      timer = setTimeout(() => bubble.classList.add('hidden'), BUBBLE_SECONDS * 1000);
+      timers.push(timer);
+    };
+    el.querySelector('img').addEventListener('click', show);
+    show();
+    return el;
   }
 
-  // Al tocar al personaje, el mensaje vuelve a salir
-  img.addEventListener('click', showBubble);
-
   document.addEventListener('screenchange', (e) => {
-    const c = CONFIG.characters[e.detail.screen];
-    host.classList.toggle('hidden', !c);
-    clearTimeout(timer);
-    if (!c) return;
-    img.src = c.img;
-    text.textContent = c.text;
-    showBubble();
+    timers.forEach(clearTimeout); timers = [];
+    host.innerHTML = '';
+    const entry = CONFIG.characters[e.detail.screen];
+    const list = entry ? [].concat(entry) : [];   // acepta objeto o arreglo
+    host.classList.toggle('hidden', list.length === 0);
+    list.forEach((c) => host.append(build(c)));
   });
 }

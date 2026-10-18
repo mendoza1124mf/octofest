@@ -66,15 +66,28 @@
 .chicken.cluck{animation:cluck .5s ease-in-out infinite}
 
 /* ---------- Personaje + cuadro de instrucciones ---------- */
-.character{position:absolute;left:0;right:0;bottom:4.5rem;z-index:20;display:flex;flex-direction:column;align-items:flex-start;
+/* ---------- Personajes + cuadros de instrucciones ---------- */
+.character{position:absolute;left:0;right:0;bottom:4.5rem;z-index:20;display:flex;align-items:flex-end;
   padding:0 1rem;pointer-events:none}
+.character.hidden{display:none}
+.char{display:flex;flex-direction:column;align-items:flex-start;max-width:48%}
+.char:only-child{max-width:14rem}
+.char--right{align-items:flex-end;margin-left:auto}
 .character-img{width:5.5rem;animation:float 2.8s ease-in-out infinite;pointer-events:auto;cursor:pointer}
 
-.bubble{position:relative;max-width:14rem;margin-bottom:.5rem;margin-left:1rem;padding:.6rem .8rem;border-radius:.75rem;
+.bubble{position:relative;max-width:100%;margin-bottom:.5rem;padding:.6rem .8rem;border-radius:.75rem;
   background:#fff;color:#1F4A3C;font-size:.75rem;box-shadow:0 4px 10px rgba(0,0,0,.2);
-  opacity:1;transform:scale(1);transform-origin:bottom left;
-  transition:opacity .35s ease,transform .35s ease}
+  transform-origin:bottom left;transition:opacity .35s ease,transform .35s ease}
+.bubble::after{content:'';position:absolute;left:1.5rem;bottom:-.4rem;width:.8rem;height:.8rem;background:#fff;transform:rotate(45deg)}
 .bubble.hidden{opacity:0;transform:scale(.85);pointer-events:none}
+
+.char--right .bubble{transform-origin:bottom right}
+.char--right .bubble::after{left:auto;right:1.5rem}
+
+/* Personaje en el lado derecho */
+.character--right{align-items:flex-end}
+.character--right .bubble{margin-left:0;margin-right:1rem;transform-origin:bottom right}
+.character--right .bubble::after{left:auto;right:1.5rem}
 /* ---------- Reproductor y navegación ---------- */
 .player{position:absolute;left:1rem;right:1rem;bottom:.5rem;z-index:30;display:flex;align-items:center;gap:.5rem}
 .nav-btn{width:2.5rem;height:2.5rem;border-radius:50%;background:rgba(31,74,60,.85);color:#FBF6E4;transition:opacity .3s}
