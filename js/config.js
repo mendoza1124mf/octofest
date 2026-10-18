@@ -14,7 +14,7 @@ function resolveTarget() {
 export const CONFIG = {
   targetDate: resolveTarget(),
   testMode: q.get('test') === '1',
-  eventName: 'OCTODENFEST',
+  eventName: 'TEST',
 
   music: 'assets/audio/musica.mp3',
   chickenAudio: 'assets/audio/pollo.mp3',
@@ -40,9 +40,13 @@ export const CONFIG = {
 
   // Personajes con cuadro de instrucciones: clave = número de pantalla
   characters: {
-    5: { img: 'assets/img/personaje1.png', text: 'Toca una pieza y luego otra para intercambiarlas.' },
-    6: { img: 'assets/img/personaje2.png', text: 'Desliza para ver los recuerdos. Puedes guardarlos.' },
-    7: { img: 'assets/img/personaje1.png', text: '¡Toca al pollo!' }
+   3: [
+      { img: 'assets/img/personaje1.png', side: 'left',  text: 'Toca el sello de cera.'},
+      { img: 'assets/img/personaje2.png', side: 'right', text: 'Hay una sorpresa para ti.'}
+    ],
+    5: { img: 'assets/img/personaje1.png', side: 'right', text: 'Toca una pieza y luego otra para intercambiarlas.' },
+    6: { img: 'assets/img/personaje2.png', side: 'left', text: 'Desliza para ver los recuerdos. Puedes guardarlos.' },
+    7: { img: 'assets/img/personaje1.png', side: 'right', text: '¡Toca al pollo!' }
   },
 
   media: [
