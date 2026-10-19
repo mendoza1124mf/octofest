@@ -57,8 +57,8 @@ export const CONFIG = {
       { img: 'assets/img/personaje2.png', side: 'right', text: 'Desliza para ver más...' },
     ],
     7: [
-      { img: 'assets/img/personaje1.png', side: 'left',  text: 'Toca al pollo, porfavor​'},
-      { img: 'assets/img/personaje2.png', side: 'right', text: 'Sí, tienes que escuchar al pollo!' },
+      { img: 'assets/img/personaje1.png', side: 'left',  text: 'Toca al pollo, porfavor ☺️​​'},
+      { img: 'assets/img/personaje2.png', side: 'right', text: 'Tiene un mensaje para ti 🤭​' },
     ],
   },
 
