@@ -14,7 +14,7 @@ function resolveTarget() {
 export const CONFIG = {
   targetDate: resolveTarget(),
   testMode: q.get('TEST') === '1',
-  eventName: 'TEST',
+  eventName: 'OCTODENFEST',
 
   music: 'assets/audio/musica.mp3',
   chickenAudio: 'assets/audio/pollo.m4a',
@@ -30,11 +30,14 @@ export const CONFIG = {
   },
 
   letter: {
-    title: 'Para ti',
+    title: '¡Feliz Cumpleaños!',
     body: [
-      'Cartita.',
-      'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industries standard dummy text ever since 1966, when designers at Letraset and James Mosley, the librarian at St Bride Printing Library in London, took a 1914 Cicero translation and scrambled it to make dummy text for Letrasets Body Type sheets. It has survived not only many decades, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised thanks to these sheets and more recently with desktop publishing software like Aldus PageMaker and Microsoft Word including versions of Lorem Ipsum.',
-      'There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which dont look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isnt anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc.'
+      'Hoy en tu día especial, más que felicitarte quiero agradecerle a la vida y a Dios el hecho de que estés aquí y habernos permitido coincidir. Aunque tardamos 3 años en hablar, la verdad es que esperaría de nuevo si supiera que volveré a encontrarte. Tu amistad es una bendición, eres luz para mi vida y seguro que para la de muchas personas más. Aunque estemos lejos, en esta amistad no se sienten los kilometros ni las fronteras de distancia.',
+      'Agradezco tu vida y que estés aquí cumpliendo un año más, veo en ti a una persona fuerte y valiente pero también sensible y amable con el mundo, admiro tu capacidad de siempre levantarte como el cangrejopollodragon que eres, pero también valoras y celebras tus logros, me alegra mucho ver como estás aprendiendo a ser más paciente contigo, amar tu intensidad y a priorizarte sobre todo. Eres una persona increíble y me siento muy afortunada de poder llamarte amiga.',
+      'Gracias por tu sentido del humor tan funable, por conservar a las ardillas que complementan tu personalidad, pero también gracias por esa ardilla seria y empática que sabe escuchar y aconsejarme cuando le necesito. Desde lo más profundo de mi corazón deseo mucha alegría, bendiciones y amor, pero sobre todo mucha paz para ti. Por favor no olvides confiar en ti y en el potencial que tienes, porque ni modo que no puedas lograr todo lo que te propongas, dudar es válido pero no permitas que eso te detenga.',
+      'Deseo que cumplas muchísimos años más, debo decir que tu amistad es sumamente valiosa para mí, gracias por existir y por ser tu misma, eres el volcán que este mundo tan lleno de gente tibia necesita. También quiero agradecer por las risas, las bromas, la funa, los discord y los audios larguisimos, gracias por apagar mi brillo y permitir que apague el tuyo en los juegos, agradezco las pláticas profundas y también las más random, le pido a la vida que podamos seguir compartiendo muchos momentos más. También manifiesto a tu Kaphrao :D',
+      'Por último, quiero que sepas que siempre estaré a un mensaje de distancia para lo que necesites.',
+      'Te quiero mucho y espero que tengas un cumpleaños increíble, lleno de sorpresas y momentos felices.'
     ]
   },
 
@@ -47,7 +50,7 @@ export const CONFIG = {
     5: 
     [
       { img: 'assets/img/personaje1.png', side: 'left',  text: 'Toca una pieza y luego otra para intercambiarlas'},
-      { img: 'assets/img/personaje2.png', side: 'right', text: 'No necesitas guia, ya sabes cual es la imagen' }
+      { img: 'assets/img/personaje2.png', side: 'right', text: 'Adivina quien es :3' }
     ],
     6: { img: 'assets/img/personaje2.png', side: 'right', text: 'Desliza para ver màs...' },
     7: { img: 'assets/img/personaje1.png', side: 'right', text: '¡Toca al pollo!' }
@@ -55,6 +58,7 @@ export const CONFIG = {
 
   media: [
     { type: 'image', src: 'assets/media/foto1.jpg' },
+    { type: 'image', src: 'assets/media/foto12.jpg'},
     { type: 'image', src: 'assets/media/foto2.jpg' },
     { type: 'image', src: 'assets/media/foto3.jpg' },
     { type: 'image', src: 'assets/media/foto4.jpg' },
