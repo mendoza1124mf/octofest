@@ -49,6 +49,6 @@ export function initLetter({ unlock, goTo }) {
       c.style.boxShadow = 'none';
     }
   });
-  canvas.toBlob((b) => b && saveBlob(b, 'mi-carta.png'), 'image/png');
+  canvas.toBlob((b) => b && saveBlob(b, 'octodenfest.png'), 'image/png');
 });
 }
