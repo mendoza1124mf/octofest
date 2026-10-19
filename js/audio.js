@@ -1,6 +1,7 @@
 export class Music {
   constructor(src) {
     this.a = new Audio(src);
+    this.a.preload = 'metadata'; 
     this.a.loop = true;
     this.vol = 0.8;
     this.ducked = false;
@@ -36,14 +37,28 @@ export class Music {
 }
 
 export function bindPlayer(music) {
+  const a = music.a;
   const bar = document.getElementById('p-bar'), cur = document.getElementById('p-cur'),
         dur = document.getElementById('p-dur'), btn = document.getElementById('p-toggle');
-  const fmt = (t) => `${String(Math.floor(t / 60)).padStart(2, '0')}:${String(Math.floor(t % 60)).padStart(2, '0')}`;
-  music.a.addEventListener('timeupdate', () => {
-    cur.textContent = fmt(music.a.currentTime);
-    if (music.a.duration) { dur.textContent = fmt(music.a.duration); bar.style.width = `${(music.a.currentTime / music.a.duration) * 100}%`; }
-  });
-  music.a.addEventListener('play', () => (btn.textContent = '❚❚'));
-  music.a.addEventListener('pause', () => (btn.textContent = '▶'));
-  btn.addEventListener('click', () => (music.a.paused ? music.play() : music.pause()));
+
+  const fmt = (t) => {
+    if (!isFinite(t) || t < 0) return '00:00';
+    return `${String(Math.floor(t / 60)).padStart(2, '0')}:${String(Math.floor(t % 60)).padStart(2, '0')}`;
+  };
+
+  const showDur = () => { dur.textContent = fmt(a.duration); };
+  const showTime = () => {
+    cur.textContent = fmt(a.currentTime);
+    if (isFinite(a.duration) && a.duration > 0) bar.style.width = `${(a.currentTime / a.duration) * 100}%`;
+  };
+
+  a.addEventListener('loadedmetadata', showDur);
+  a.addEventListener('durationchange', showDur);   // se dispara cuando la duración se actualiza o corrige
+  a.addEventListener('timeupdate', showTime);
+  a.addEventListener('play', () => (btn.textContent = '❚❚'));
+  a.addEventListener('pause', () => (btn.textContent = '▶'));
+  btn.addEventListener('click', () => (a.paused ? music.play() : music.pause()));
+
+  showDur();   // por si los metadatos ya estaban cargados
+  showTime();
 }

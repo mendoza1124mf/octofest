@@ -16,13 +16,13 @@ export const CONFIG = {
   testMode: q.get('TEST') === '1',
   eventName: 'OCTODENFEST',
 
-  music: 'assets/audio/musica.mp3',
+  music: 'assets/audio/musica.mp3?v=2',
   chickenAudio: 'assets/audio/pollo.m4a',
   puzzleImage: 'assets/img/puzzle.jpg',
 
   // Pantallas (1-8) donde suena la música y donde se muestra el reproductor
-  musicScreens: [2, 3, 4, 5, 6, 7],
-  playerScreens: [3, 4],
+  musicScreens: [2, 3, 4, 5, 6, 8],
+  playerScreens: [2,3, 4, 5, 6, 8],
 
   titles: {
     1: 'Cuenta Regresiva', 2: 'Feliz cumpleaños', 3: 'Feliz cumpleaños', 4: 'Feliz cumpleaños',
@@ -44,16 +44,22 @@ export const CONFIG = {
   // Personajes con cuadro de instrucciones: clave = número de pantalla
   characters: {
    3: [
-      { img: 'assets/img/personaje1.png', side: 'left',  text: 'Toca el sello de cera!'},
-      { img: 'assets/img/personaje2.png', side: 'right', text: 'Hay una sorpresa para ti!'}
+      { img: 'assets/img/personaje1.png', side: 'left',  text: 'Toca el sello de cera! 🤭​'},
+      { img: 'assets/img/personaje2.png', side: 'right', text: 'Hay una sorpresa para ti! 🤭​'}
     ],
     5: 
     [
       { img: 'assets/img/personaje1.png', side: 'left',  text: 'Toca una pieza y luego otra para intercambiarlas'},
-      { img: 'assets/img/personaje2.png', side: 'right', text: 'Adivina quien es :3' }
+      { img: 'assets/img/personaje2.png', side: 'right', text: 'A que no adivinas quien es 🤔​' }
     ],
-    6: { img: 'assets/img/personaje2.png', side: 'right', text: 'Desliza para ver màs...' },
-    7: { img: 'assets/img/personaje1.png', side: 'right', text: '¡Toca al pollo!' }
+    6: [
+      { img: 'assets/img/personaje1.png', side: 'left',  text: 'Desbloqueaste la estampita! 🥳​'},
+      { img: 'assets/img/personaje2.png', side: 'right', text: 'Desliza para ver más...' },
+    ],
+    7: [
+      { img: 'assets/img/personaje1.png', side: 'left',  text: 'Toca al pollo, porfavor​'},
+      { img: 'assets/img/personaje2.png', side: 'right', text: 'Sí, tienes que escuchar al pollo!' },
+    ],
   },
 
   media: [

@@ -21,6 +21,11 @@ let current = -1;
 
 const unlocked = (i) => CONFIG.testMode || !LOCKS[i] || done.has(LOCKS[i]);
 
+document.addEventListener('screenchange', (e) => {
+  if (e.detail.screen !== 8) return;
+  [500, 1700, 2900].forEach((t) => setTimeout(() => confettiBurst(true), t));
+});
+
 function goTo(i) {
   if (i < 0 || i >= total || i === current) return;
   if (i > current) for (let k = Math.max(current, 0); k < i; k++) if (!unlocked(k)) return shake();
