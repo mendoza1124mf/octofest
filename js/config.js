@@ -17,7 +17,7 @@ export const CONFIG = {
   eventName: 'TEST',
 
   music: 'assets/audio/musica.mp3',
-  chickenAudio: 'assets/audio/pollo.mp3',
+  chickenAudio: 'assets/audio/pollo.m4a',
   puzzleImage: 'assets/img/puzzle.jpg',
 
   // Pantallas (1-8) donde suena la música y donde se muestra el reproductor
