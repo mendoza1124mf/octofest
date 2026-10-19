@@ -8,7 +8,7 @@ const q = new URLSearchParams(location.search);
 function resolveTarget() {
   if (q.get('seg')) return new Date(Date.now() + Number(q.get('seg')) * 1000);
   if (q.get('fecha')) return new Date(q.get('fecha'));
-  return new Date('2026-10-03T00:00:00'); // <-- fecha real (hora local del dispositivo)
+  return new Date('2026-10-19T00:00:00'); // <-- fecha real (hora local del dispositivo)
 }
 
 export const CONFIG = {
